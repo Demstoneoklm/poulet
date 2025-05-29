@@ -1,30 +1,51 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app">
+    <produit></produit>
+    <header>
+      <h1>Boutique de Poulet</h1>
+      <nav>
+        <router-link to="/">Accueil</router-link>
+        <router-link to="/produits">Produits</router-link>
+        <router-link to="/panier">Panier</router-link>
+        <router-link to="/paiement">Paiement</router-link>
+        <router-link to="/admin">Admin</router-link>
+      </nav>
+    </header>
+    
+    <!-- Affiche la vue correspondant à la route actuelle -->
+    <main>
+      <router-view />
+    </main>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script setup>
+import Produit from './components/Produit.vue';
+component:{
+  pr
+}
+// Pas besoin de code JS ici pour la navigation basique
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+header {
+  background-color: #f8f8f8;
+  padding: 10px;
+  text-align: center;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+nav a.router-link-active {
+  font-weight: bold;
+  color: #007BFF;
+}
+
+main {
+  padding: 20px;
 }
 </style>
